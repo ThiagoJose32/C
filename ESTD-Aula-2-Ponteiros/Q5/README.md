@@ -1,0 +1,1 @@
+5) Acrescente uma função no exercício anterior que receba o vetor como parâmetro e retorne a quantidade de valores positivos.

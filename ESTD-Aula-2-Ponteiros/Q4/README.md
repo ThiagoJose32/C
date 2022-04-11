@@ -1,0 +1,1 @@
+4) Faça uma programa que declare um vetor de inteiros com 5 elementos e implemente uma função para les os números e outra para imprimir os valores;
