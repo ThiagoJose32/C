@@ -14,7 +14,34 @@ Observação: não usar o vetor como variável global.
 
 #include <stdio.h>
 
+void lerVetor(int *vet){
+  int cont;
+  
+  for(cont=0;cont<3;cont++){
+    printf("\nDigite valor para campo [%d]: ", cont);
+    scanf("%d", &vet[cont]);
+  }
+}
+
+void imprimirVetor(int vet[3]){
+  int cont;
+
+  for(cont=0;cont<3;cont++){
+    printf("\nCampo [%d] = %d", cont, vet[cont]);
+  }
+  
+}
+
+void maiorQueN(int vet[3]){
+  
+}
+
+void mediaDosPares(int vet[3]){
+  
+}
+
 int main(void) {
-  printf("Hello World\n");
-  return 0;
+  int vetor[3], min, max;
+  lerVetor(&vetor[0]);
+  imprimirVetor(vetor);
 }
