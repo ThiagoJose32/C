@@ -18,7 +18,7 @@ void lerVetor(int *vet){
   int cont;
   
   for(cont=0;cont<3;cont++){
-    printf("\nDigite valor para campo [%d]: ", cont);
+    printf("\nDigite um valor para o campo [%d]: ", cont);
     scanf("%d", &vet[cont]);
   }
 }
@@ -27,21 +27,68 @@ void imprimirVetor(int vet[3]){
   int cont;
 
   for(cont=0;cont<3;cont++){
-    printf("\nCampo [%d] = %d", cont, vet[cont]);
+    printf("\nCampo[%d] = %d", cont, vet[cont]);
   }
   
 }
 
 void maiorQueN(int vet[3]){
+  int cont, n, x=0;
+  printf("\nDeseja visualizar os valores acima de quanto? ");
+  scanf("%d", &n);
   
+  for(cont=0;cont<3;cont++){
+    if(vet[cont]>n){
+      printf("\nCampo[%d] = %d", cont, vet[cont]);
+      x++;
+    }
+  }
+  if(x==0){
+    printf("\nNenhum valor encontrado!");
+  }
 }
 
 void mediaDosPares(int vet[3]){
-  
+  int cont, total=0, qtd=0;
+
+  for(cont=0;cont<3;cont++){
+    if(vet[cont]%2 == 0){
+      total = total + vet[cont];
+      qtd++;;
+    }
+  }
+  printf("\nMedia dos numeros pares: %d", total/qtd);
+}
+
+void minMax(int vet[3], int *min, int *max){
+  int cont, prox=1, minimo, maximo;
+
+  for(cont=0;cont<2;cont++){
+    if(vet[cont]>vet[prox]){
+      maximo = vet[cont];
+      printf("----- %d -----", minimo);
+      getc(stdin);
+      getc(stdin);
+    }else{
+      maximo = vet[prox];
+    }
+    prox++;
+  }
+
+  *min = minimo;
+  *max = maximo;
 }
 
 int main(void) {
   int vetor[3], min, max;
   lerVetor(&vetor[0]);
+  printf("\n------------------------------------------\n");
   imprimirVetor(vetor);
+  printf("\n\n------------------------------------------\n");
+  maiorQueN(vetor);
+  printf("\n\n------------------------------------------\n");
+  mediaDosPares(vetor);
+  printf("\n\n------------------------------------------\n");
+  minMax(vetor, &min, &max);
+  printf("\n\n Minimo: %d      Maximo: %d", min, max);
 }
