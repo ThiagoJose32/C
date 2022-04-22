@@ -6,7 +6,39 @@
 
 #include <stdio.h>
 
+void ler(int *aa, int *bb, int *cc){
+  printf("\nDigite a: ");
+  scanf("%d", &*aa);
+  printf("\nDigite b: ");
+  scanf("%d", &*bb);
+  printf("\nDigite a: ");
+  scanf("%d", &*cc);
+}
+
+void trocar(int *aa, int *bb, int *cc){
+  int aux, aux2;
+  aux=*bb;
+  *bb=*aa;
+  aux2=*cc;
+  *cc=aux;
+  *aa=aux2;
+}
+
+void imprimir(int aa, int bb, int cc){
+  printf("\n\nPrintf a: %d", aa);
+  printf("\n\nPrintf b: %d", bb);
+  printf("\n\nPrintf c: %d", cc);
+}
+
+void calc_esfera(float r, float *area, float *volume){
+  
+}
+
 int main(void) {
-  printf("Hello World\n");
-  return 0;
+  int a, b, c;
+  
+  ler(&a, &b, &c);
+  trocar(&a, &b, &c);
+  imprimir(a, b, c);
+  
 }
