@@ -17,27 +17,27 @@ Observação: não usar o vetor como variável global.
 void lerVetor(int *vet){
   int cont;
   
-  for(cont=0;cont<3;cont++){
+  for(cont=0;cont<10;cont++){
     printf("\nDigite um valor para o campo [%d]: ", cont);
     scanf("%d", &vet[cont]);
   }
 }
 
-void imprimirVetor(int vet[3]){
+void imprimirVetor(int vet[10]){
   int cont;
 
-  for(cont=0;cont<3;cont++){
+  for(cont=0;cont<10;cont++){
     printf("\nCampo[%d] = %d", cont, vet[cont]);
   }
   
 }
 
-void maiorQueN(int vet[3]){
+void maiorQueN(int vet[10]){
   int cont, n, x=0;
   printf("\nDeseja visualizar os valores acima de quanto? ");
   scanf("%d", &n);
   
-  for(cont=0;cont<3;cont++){
+  for(cont=0;cont<10;cont++){
     if(vet[cont]>n){
       printf("\nCampo[%d] = %d", cont, vet[cont]);
       x++;
@@ -48,10 +48,10 @@ void maiorQueN(int vet[3]){
   }
 }
 
-void mediaDosPares(int vet[3]){
+void mediaDosPares(int vet[10]){
   int cont, total=0, qtd=0;
 
-  for(cont=0;cont<3;cont++){
+  for(cont=0;cont<10;cont++){
     if(vet[cont]%2 == 0){
       total = total + vet[cont];
       qtd++;;
@@ -60,27 +60,26 @@ void mediaDosPares(int vet[3]){
   printf("\nMedia dos numeros pares: %d", total/qtd);
 }
 
-void minMax(int vet[3], int *min, int *max){
-  int cont, prox=1, minimo, maximo;
-
-  for(cont=0;cont<2;cont++){
-    if(vet[cont]>vet[prox]){
-      maximo = vet[cont];
-      printf("----- %d -----", minimo);
-      getc(stdin);
-      getc(stdin);
-    }else{
-      maximo = vet[prox];
+void minMax(int vet[10], int *minimo, int *maximo){
+  int cont=0;
+  *maximo = vet[cont];
+  *minimo = vet[cont];
+  
+  for(cont=1;cont<10;cont++){
+    if(*maximo<vet[cont]){
+      *maximo = vet[cont];
     }
-    prox++;
   }
-
-  *min = minimo;
-  *max = maximo;
+  
+  for(cont=1;cont<10;cont++){
+    if(*minimo>vet[cont]){
+      *minimo = vet[cont];
+    }
+  }
 }
 
 int main(void) {
-  int vetor[3], min, max;
+  int vetor[10], min, max;
   lerVetor(&vetor[0]);
   printf("\n------------------------------------------\n");
   imprimirVetor(vetor);
@@ -90,5 +89,5 @@ int main(void) {
   mediaDosPares(vetor);
   printf("\n\n------------------------------------------\n");
   minMax(vetor, &min, &max);
-  printf("\n\n Minimo: %d      Maximo: %d", min, max);
+  printf("\n\nMinimo: %d      Maximo: %d", min, max);
 }
