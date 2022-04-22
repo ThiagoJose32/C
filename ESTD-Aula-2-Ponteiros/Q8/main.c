@@ -25,20 +25,30 @@ void trocar(int *aa, int *bb, int *cc){
 }
 
 void imprimir(int aa, int bb, int cc){
+  printf("\n\n--------------------------");
   printf("\n\nPrintf a: %d", aa);
   printf("\n\nPrintf b: %d", bb);
   printf("\n\nPrintf c: %d", cc);
 }
 
 void calc_esfera(float r, float *area, float *volume){
-  
+  *area=4*3.14*(r*r);
+  *volume=(4*3.14*(r*r*r))/3;
 }
 
 int main(void) {
   int a, b, c;
+  float r, area, volume;
   
   ler(&a, &b, &c);
   trocar(&a, &b, &c);
   imprimir(a, b, c);
+
+  printf("\n\n--------------------------");
+  printf("\n\n\nDigite o raio da esfera: ");
+  scanf("%f", &r);
+  calc_esfera(r, &area, &volume);
+  printf("\nArea: %.2f", area);
+  printf("\nVolume: %.2f", volume);
   
 }
