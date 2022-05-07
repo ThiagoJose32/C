@@ -11,3 +11,5 @@ void imprimir(Ponto *p);
 void liberar(Ponto *p);
 
 float calcularDistancia(Ponto *p1, Ponto *p2);
+
+void transladar(Ponto *p);
